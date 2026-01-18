@@ -48,16 +48,28 @@ The scanner operates in the following stages:
 
 ## Usage
 
-Run the scanner from the **root of the repository**:
+You can run the scanner in two ways:
+
+### 1. From the Repository Root (Recommended)
+
+Run as a Python module:
 
 ```bash
 python3 -m web_scanner.scanner <target_url>
 ```
 
 **Example:**
-
 ```bash
 python3 -m web_scanner.scanner http://example.com
+```
+
+### 2. From Inside the `web_scanner` Directory
+
+Run directly as a script:
+
+```bash
+cd web_scanner
+python3 scanner.py <target_url>
 ```
 
 ## Output

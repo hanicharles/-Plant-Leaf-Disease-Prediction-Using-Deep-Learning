@@ -1,5 +1,13 @@
 import argparse
 import sys
+import os
+
+# Allow running from inside the directory by adding parent to path
+if __name__ == "__main__" and __package__ is None:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(current_dir)
+    sys.path.append(parent_dir)
+
 from web_scanner.stage1 import run_stage1
 from web_scanner.stage2 import run_stage2
 from web_scanner.stage3 import run_stage3
