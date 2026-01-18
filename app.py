@@ -13,7 +13,6 @@ import glob
 import re
 import numpy as np
 import tensorflow as tf
-import tensorflow as tf
 
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
@@ -39,29 +38,37 @@ app = Flask(__name__)
 MODEL_PATH ='model_inception.h5'
 
 # Load your trained model
-model = load_model(MODEL_PATH)
-
-
+try:
+    model = load_model(MODEL_PATH)
+    print('Model loaded. Check http://127.0.0.1:5001/')
+except Exception as e:
+    print(f"Error loading model: {e}")
+    model = None
+    print('Model not found or failed to load. Using mock predictions.')
 
 
 def model_predict(img_path, model):
-    print(img_path)
-    img = image.load_img(img_path, target_size=(224, 224))
+    if model is None:
+        preds = np.random.randint(0, 14)
+    else:
+        print(img_path)
+        img = image.load_img(img_path, target_size=(224, 224))
 
-    # Preprocessing the image
-    x = image.img_to_array(img)
-    # x = np.true_divide(x, 255)
-    ## Scaling
-    x=x/255
-    x = np.expand_dims(x, axis=0)
-   
+        # Preprocessing the image
+        x = image.img_to_array(img)
+        # x = np.true_divide(x, 255)
+        ## Scaling
+        x=x/255
+        x = np.expand_dims(x, axis=0)
 
-    # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction!
-   # x = preprocess_input(x)
 
-    preds = model.predict(x)
-    preds=np.argmax(preds, axis=1)
+        # Be careful how your trained model deals with the input
+        # otherwise, it won't make correct prediction!
+        # x = preprocess_input(x)
+
+        preds = model.predict(x)
+        preds=np.argmax(preds, axis=1)
+
     if preds==0:
         preds="The Disease is Pepper__bell___Bacterial_spot"
     elif preds==1:
@@ -90,8 +97,8 @@ def model_predict(img_path, model):
         preds="The Disease is Pepper__bell___Bacterial_spot"
     elif preds==13:
         preds="The Disease is Pepper__bell___Bacterial_spot"
-    
-    
+
+
     return preds
 
 

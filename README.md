@@ -1,6 +1,6 @@
 
 
-# 🍅 Tomato Leaf Disease Prediction Using Deep Learning
+# 🍅 Haniscan: Tomato Leaf Disease Prediction
 
 ![Image](https://ag.purdue.edu/department/arge/swpap/_media/early-blight-of-tomato-6.jpg)
 
@@ -12,7 +12,7 @@
 
 ## 📌 Project Overview
 
-Tomato Leaf Disease Prediction is a **deep learning–based web application** that detects and classifies diseases in tomato plant leaves using **image processing and transfer learning models**.
+Haniscan is a **deep learning–based web application** that detects and classifies diseases in tomato plant leaves using **image processing and transfer learning models**.
 The system helps farmers and agricultural experts **identify diseases at an early stage**, reducing crop loss and improving productivity.
 
 ---
@@ -58,7 +58,7 @@ The system helps farmers and agricultural experts **identify diseases at an earl
 ## 📂 Project Structure
 
 ```bash
-Tomato-Leaf-Disease-Prediction/
+haniscan/
 │
 ├── app.py                       # Flask application
 ├── requirements.txt             # Required Python libraries
@@ -86,8 +86,8 @@ Tomato-Leaf-Disease-Prediction/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Tomato-Leaf-Disease-Prediction.git
-cd Tomato-Leaf-Disease-Prediction
+git clone https://github.com/your-username/haniscan.git
+cd haniscan
 ```
 
 ### 2️⃣ Install Dependencies
@@ -105,7 +105,7 @@ python app.py
 ### 4️⃣ Open in Browser
 
 ```
-http://127.0.0.1:5000/
+http://127.0.0.1:5001/
 ```
 
 ---
@@ -164,4 +164,3 @@ This project aligns with **AI in Agriculture**, focusing on:
 ---
 
 ### 🌟 If you find this project useful, don’t forget to **star the repository**!
-
